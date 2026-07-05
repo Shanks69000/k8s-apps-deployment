@@ -4,6 +4,7 @@ Déploiement d'applications sur un cluster K3s avec Kustomize, network policies,
 
 ## Architecture cluster
 
+```bash
 K3s cluster (3 nodes)
 ├── k8s-master    "control plane"
 ├── k8s-worker1   "workload"
@@ -11,6 +12,7 @@ K3s cluster (3 nodes)
 Namespace: apps
 ├── homer         "dashboard interne"
 └── it-tools      "boîte à outils IT"
+```
 
 ## Sécurité et gouvernance
 
