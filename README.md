@@ -36,6 +36,8 @@ Namespace: apps
 ## Structure Kustomize
 
 ```bash
+argocd/
+├── application.yml           # Manifest ArgoCD Application (GitOps)
 base/                         # Manifests communs
 ├── namespace.yml
 ├── network-policy.yml
@@ -98,3 +100,4 @@ kubectl apply -f argocd/application.yml
 - Resource Quotas et LimitRanges (gouvernance cluster)
 - Probes readiness/liveness sur chaque deployment
 - Resource requests/limits explicites par container
+- GitOps avec ArgoCD (auto-sync, prune, self-heal)
