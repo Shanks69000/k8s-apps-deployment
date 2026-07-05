@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: it-tools
+  namespace: apps
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: it-tools.lab.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: it-tools
+                port:
+                  number: 80
