@@ -72,6 +72,25 @@ kubectl get netpol -n apps
 kubectl get quota -n apps
 ```
 
+## GitOps avec ArgoCD
+
+Le repo est synchronisé automatiquement via ArgoCD. Chaque push sur `main` déclenche un sync vers le cluster.
+
+- **Auto-sync** : activé (pas de `kubectl apply` manuel)
+- **Prune** : les ressources supprimées du repo sont supprimées du cluster
+- **Self-heal** : toute modification manuelle sur le cluster est revertée à l'état Git
+
+Le manifest ArgoCD Application est dans `argocd/application.yml`.
+
+```bash
+# Installation ArgoCD
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml --server-side
+
+# Déploiement de l'application
+kubectl apply -f argocd/application.yml
+```
+
 ## Ce que ce projet démontre
 
 - Kustomize avec overlays multi-environnement (base/prod)
