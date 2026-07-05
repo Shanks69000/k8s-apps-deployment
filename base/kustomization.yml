@@ -16,3 +16,4 @@ resources:
 labels:
   - pairs:
       managed-by: kustomize
+    includeSelectors: false
